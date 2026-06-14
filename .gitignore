@@ -1,0 +1,28 @@
+# Build output
+bin/
+obj/
+publish/
+
+# Visual Studio / Rider
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# .NET local state
+.dotnet_home/
+TestResults/
+
+# Logs and diagnostics
+*.log
+crash.log
+
+# Debug symbols and generated binaries
+*.pdb
+*.cache
+
+# OS files
+Thumbs.db
+Desktop.ini

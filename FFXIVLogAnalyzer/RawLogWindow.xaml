@@ -1,0 +1,38 @@
+<Window x:Class="FFXIVLogAnalyzer.RawLogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="原始日志" Height="600" Width="1000"
+        WindowStartupLocation="CenterOwner"
+        Background="#11111B" Foreground="#BAC2DE">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!-- Search bar -->
+        <Border Background="#181825" Padding="8" BorderBrush="#313244" BorderThickness="0,0,0,1">
+            <DockPanel>
+                <TextBlock Text="搜索:" VerticalAlignment="Center" Foreground="#A6ADC8" Margin="0,0,6,0"/>
+                <TextBox x:Name="SearchBox" TextChanged="SearchBox_TextChanged"
+                         Background="#313244" Foreground="#CDD6F4" BorderBrush="#45475A"
+                         Padding="6,4" Width="300" Margin="0,0,8,0"/>
+                <TextBlock x:Name="LineInfoText" VerticalAlignment="Center" Foreground="#F9E2AF" Margin="8,0,0,0"/>
+            </DockPanel>
+        </Border>
+        <ListBox x:Name="LogListBox" Grid.Row="1"
+                 Background="#11111B" Foreground="#BAC2DE"
+                 FontFamily="Consolas" FontSize="12" BorderThickness="0"
+                 VirtualizingPanel.IsVirtualizing="True"
+                 VirtualizingPanel.VirtualizationMode="Recycling"
+                 ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <Run Text="{Binding LineNumber, StringFormat='{}{0,5} '}" Foreground="#585B70"/>
+                        <Run Text="{Binding Text, Mode=OneWay}" Foreground="#BAC2DE"/>
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>
